@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>小漾攝影工作室 | 臺中婚紗婚禮紀錄</title>
+<meta name="description" content="小漾攝影工作室位於臺中，提供婚紗、婚禮紀錄與形象照拍攝。風格自然、不過度修飾，重視情緒與現場關係，歡迎詢問檔期。">
+<meta property="og:title" content="小漾攝影工作室 | 臺中婚紗婚禮紀錄">
+<meta property="og:description" content="自然、不過度修飾，重視情緒與現場關係。臺中婚紗、婚禮紀錄、形象照。">
+<meta property="og:image" content="images/hero.jpg">
+<meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500&family=Noto+Serif+TC:wght@500;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#F2F4F1; --paper:#FFFFFF; --ink:#1E2927; --muted:#5B6866;
+  --accent:#3F6F73; --accent-dark:#2C5155; --sand:#D9CFC2; --line:#D5DAD6;
+  --serif:"Noto Serif TC","Songti TC","PMingLiU",serif;
+  --sans:"Noto Sans TC","PingFang TC","Microsoft JhengHei",sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;scroll-padding-top:72px}
+body{font-family:var(--sans);color:var(--ink);background:var(--bg);line-height:1.8;font-size:16px}
+img{display:block;max-width:100%}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--accent);outline-offset:3px}
+.wrap{width:min(1120px,92%);margin-inline:auto}
+section{padding:96px 0}
+h1,h2,h3{font-family:var(--serif);line-height:1.4;font-weight:700}
+h2{font-size:clamp(1.7rem,3.2vw,2.3rem);margin-bottom:12px}
+.lead{color:var(--muted);max-width:42em;margin-bottom:40px}
+
+header.site{position:sticky;top:0;z-index:10;background:rgba(242,244,241,.92);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+header.site .wrap{display:flex;justify-content:space-between;align-items:center;min-height:64px;gap:16px}
+.brand{font-family:var(--serif);font-weight:700;text-decoration:none;font-size:1.1rem}
+nav ul{display:flex;gap:24px;list-style:none;font-size:.95rem}
+nav a{text-decoration:none;color:var(--muted)}
+nav a:hover{color:var(--accent)}
+
+.hero{padding:0}
+.hero-grid{display:grid;grid-template-columns:1fr 1.15fr;min-height:calc(100vh - 64px);align-items:center;gap:48px}
+.hero-text{padding:64px 0}
+.hero h1{font-size:clamp(2.2rem,5vw,3.6rem);margin-bottom:20px}
+.hero .services{color:var(--accent-dark);font-weight:500;margin-bottom:12px}
+.hero .claim{color:var(--muted);font-size:1.1rem;max-width:26em;margin-bottom:36px}
+.btns{display:flex;gap:14px;flex-wrap:wrap}
+.btn{display:inline-block;padding:12px 28px;border-radius:2px;text-decoration:none;font-weight:500;border:1.5px solid var(--accent);transition:background .2s,color .2s;font-family:inherit;font-size:1rem;cursor:pointer}
+.btn.primary{background:var(--accent);color:#fff}
+.btn.primary:hover{background:var(--accent-dark)}
+.btn.ghost{color:var(--accent-dark)}
+.btn.ghost:hover{background:var(--accent);color:#fff}
+.hero-img{align-self:stretch;margin-block:32px;border-radius:2px;overflow:hidden}
+.hero-img img{width:100%;height:100%;object-fit:cover}
+
+.ph{background:linear-gradient(135deg,var(--sand),#B9C6C2);position:relative;overflow:hidden}
+.ph img{width:100%;height:100%;object-fit:cover}
+
+.cat{margin-bottom:64px}
+.cat:last-child{margin-bottom:0}
+.cat h3{font-size:1.4rem;margin-bottom:4px}
+.cat .sub{color:var(--muted);font-size:.95rem;margin-bottom:20px}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.grid figure{aspect-ratio:4/5}
+.grid img{transition:transform .5s}
+.grid figure:hover img{transform:scale(1.03)}
+
+.cases{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.case{border-top:3px solid var(--accent);padding-top:16px}
+.case h3{font-size:1.2rem;margin-bottom:12px}
+.case dl{display:grid;gap:10px;font-size:.95rem}
+.case dt{font-weight:500;color:var(--accent-dark)}
+.case dd{color:var(--muted)}
+
+.alt-bg{background:var(--paper)}
+.plans{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.plan{border:1px solid var(--line);padding:28px;display:flex;flex-direction:column;gap:12px;background:var(--bg)}
+.plan.main{border-color:var(--accent);border-width:2px}
+.plan h3{font-size:1.25rem}
+.price{font-family:var(--serif);font-size:1.5rem;color:var(--accent-dark)}
+.plan ul{padding-left:1.2em;color:var(--muted);font-size:.95rem}
+.plan .meta{font-size:.9rem;border-top:1px solid var(--line);padding-top:12px;margin-top:auto}
+.addon{margin-top:32px;padding:20px 24px;background:var(--paper);border-left:3px solid var(--sand);font-size:.95rem;color:var(--muted)}
+
+.steps{list-style:none;display:grid;grid-template-columns:repeat(5,1fr);gap:20px;counter-reset:s}
+.steps li{counter-increment:s;border-top:1px solid var(--ink);padding-top:14px}
+.steps li::before{content:counter(s);font-family:var(--serif);font-size:1.6rem;color:var(--accent)}
+.steps h3{font-size:1.1rem;margin:4px 0 6px}
+.steps p{font-size:.92rem;color:var(--muted)}
+
+.about-grid{display:grid;grid-template-columns:.8fr 1.2fr;gap:56px;align-items:center}
+.about-grid .ph{aspect-ratio:4/5}
+.about-grid p{margin-bottom:16px;color:var(--muted)}
+
+form{display:grid;grid-template-columns:1fr 1fr;gap:20px;max-width:760px}
+.field{display:flex;flex-direction:column;gap:6px}
+.field.full{grid-column:1/-1}
+label{font-weight:500;font-size:.95rem}
+input,select,textarea{font:inherit;padding:11px 12px;border:1px solid #AAB4B0;border-radius:2px;background:#fff;color:var(--ink)}
+textarea{min-height:130px;resize:vertical}
+#msg{grid-column:1/-1;font-size:.95rem;color:var(--accent-dark)}
+
+footer{background:var(--ink);color:#DDE4E1;padding:56px 0 32px}
+footer .cols{display:flex;flex-wrap:wrap;gap:40px;justify-content:space-between;margin-bottom:32px}
+footer h2{font-size:1.3rem;color:#fff}
+footer a{color:#fff}
+footer small{display:block;border-top:1px solid #3A4744;padding-top:20px;color:#9FAAA6}
+
+@media (max-width:1024px){
+  .grid{grid-template-columns:repeat(2,1fr)}
+  .steps{grid-template-columns:repeat(3,1fr)}
+}
+@media (max-width:768px){
+  section{padding:64px 0}
+  nav{display:none}
+  .hero-grid,.about-grid{grid-template-columns:1fr;min-height:0;gap:24px}
+  .hero-img{order:-1;margin:16px 0 0;aspect-ratio:4/3}
+  .hero-text{padding:16px 0 48px}
+  .grid,.cases,.plans,.steps,form{grid-template-columns:1fr}
+}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
+</style>
+</head>
+<body>
+
+<header class="site">
+  <div class="wrap">
+    <a class="brand" href="#top">小漾攝影工作室</a>
+    <nav aria-label="主選單">
+      <ul>
+        <li><a href="#works">作品</a></li>
+        <li><a href="#cases">案例</a></li>
+        <li><a href="#plans">方案</a></li>
+        <li><a href="#process">流程</a></li>
+        <li><a href="#about">關於</a></li>
+        <li><a href="#contact">詢問檔期</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+
+  <section class="hero" aria-labelledby="hero-title">
+    <div class="wrap hero-grid">
+      <div class="hero-text">
+        <p class="services">婚紗｜婚禮紀錄｜形象照　臺中</p>
+        <h1 id="hero-title">小漾攝影工作室</h1>
+        <p class="claim">自然、不過度修飾，重視情緒與現場關係。我們拍的是你們真正的樣子。</p>
+        <div class="btns">
+          <a class="btn primary" href="#works">看作品</a>
+          <a class="btn ghost" href="#contact">詢問檔期</a>
+        </div>
+      </div>
+      <div class="hero-img ph">
+        <img src="images/hero.jpg" width="1200" height="1000" alt="臺中婚紗攝影：新人在戶外自然光下相視而笑的紀實畫面">
+      </div>
+    </div>
+  </section>
+
+  <section id="works" aria-labelledby="works-title">
+    <div class="wrap">
+      <h2 id="works-title">作品集</h2>
+      <p class="lead">依服務類型分類。每一張都保留當下的光線與表情，只做必要的調整。</p>
+
+      <div class="cat" id="wedding">
+        <h3>婚紗</h3>
+        <p class="sub">戶外自然光、生活感互動，不擺僵硬姿勢。</p>
+        <div class="grid">
+          <figure class="ph"><img loading="lazy" src="images/wedding-01.jpg" width="800" height="1000" alt="臺中婚紗攝影，新娘在草地上回頭微笑的自然光側拍"></figure>
+          <figure class="ph"><img loading="lazy" src="images/wedding-02.jpg" width="800" height="1000" alt="婚紗外拍，新人牽手走在林間小徑的背影"></figure>
+          <figure class="ph"><img loading="lazy" src="images/wedding-03.jpg" width="800" height="1000" alt="婚紗特寫，新郎替新娘整理頭紗的溫柔瞬間"></figure>
+          <figure class="ph"><img loading="lazy" src="images/wedding-04.jpg" width="800" height="1000" alt="黃昏逆光婚紗照，新人額頭相靠的剪影"></figure>
+          <figure class="ph"><img loading="lazy" src="images/wedding-05.jpg" width="800" height="1000" alt="室內婚紗拍攝，新娘窗邊靜態肖像"></figure>
+          <figure class="ph"><img loading="lazy" src="images/wedding-06.jpg" width="800" height="1000" alt="婚紗攝影細節，捧花與婚戒的近拍"></figure>
+        </div>
+      </div>
+
+      <div class="cat" id="record">
+        <h3>婚禮紀錄</h3>
+        <p class="sub">從準備到送客，記錄儀式裡真實的情緒。</p>
+        <div class="grid">
+          <figure class="ph"><img loading="lazy" src="images/record-01.jpg" width="800" height="1000" alt="婚禮紀錄，新娘準備時與媽媽擁抱落淚的瞬間"></figure>
+          <figure class="ph"><img loading="lazy" src="images/record-02.jpg" width="800" height="1000" alt="婚禮儀式中新人交換戒指的紀實攝影"></figure>
+          <figure class="ph"><img loading="lazy" src="images/record-03.jpg" width="800" height="1000" alt="婚宴進場，賓客歡呼拍手的熱鬧場面"></figure>
+          <figure class="ph"><img loading="lazy" src="images/record-04.jpg" width="800" height="1000" alt="婚禮紀錄，新郎看見新娘走進會場的感動表情"></figure>
+          <figure class="ph"><img loading="lazy" src="images/record-05.jpg" width="800" height="1000" alt="婚禮敬酒時親友笑著合影的自然畫面"></figure>
+          <figure class="ph"><img loading="lazy" src="images/record-06.jpg" width="800" height="1000" alt="婚禮結束後新人在會場外的輕鬆合照"></figure>
+        </div>
+      </div>
+
+      <div class="cat" id="portrait">
+        <h3>形象照</h3>
+        <p class="sub">給個人品牌、履歷與專業工作者的自然肖像。</p>
+        <div class="grid">
+          <figure class="ph"><img loading="lazy" src="images/portrait-01.jpg" width="800" height="1000" alt="臺中形象照，專業人士穿著襯衫的半身肖像"></figure>
+          <figure class="ph"><img loading="lazy" src="images/portrait-02.jpg" width="800" height="1000" alt="個人品牌形象照，創業者在工作室中的自然姿態"></figure>
+          <figure class="ph"><img loading="lazy" src="images/portrait-03.jpg" width="800" height="1000" alt="履歷用形象照，女性顧問在柔和窗光下微笑"></figure>
+          <figure class="ph"><img loading="lazy" src="images/portrait-04.jpg" width="800" height="1000" alt="商務形象照，西裝男士的戶外街景肖像"></figure>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="cases" class="alt-bg" aria-labelledby="cases-title">
+    <div class="wrap">
+      <h2 id="cases-title">案例說明</h2>
+      <p class="lead">三種常見的拍攝情境，以及我們怎麼回應需求。</p>
+      <div class="cases">
+        <article class="case">
+          <h3>婚紗：不想擺太多姿勢的新人</h3>
+          <dl>
+            <dt>拍攝情境</dt><dd>臺中市區公園與老宅，清晨自然光，兩小時內完成。</dd>
+            <dt>客戶需求</dt><dd>不習慣面對鏡頭，希望看起來像平常的兩個人。</dd>
+            <dt>成品方向</dt><dd>以互動與走動為主，色調柔和，保留膚色與環境原貌。</dd>
+          </dl>
+        </article>
+        <article class="case">
+          <h3>婚禮紀錄：家族關係很重要的婚宴</h3>
+          <dl>
+            <dt>拍攝情境</dt><dd>早上迎娶、中午儀式、晚上宴客，全程約八小時。</dd>
+            <dt>客戶需求</dt><dd>想留下長輩與朋友的表情，不要大量擺拍。</dd>
+            <dt>成品方向</dt><dd>紀實為主，依時間軸整理，附精選與完整相簿。</dd>
+          </dl>
+        </article>
+        <article class="case">
+          <h3>形象照：接案者的個人品牌</h3>
+          <dl>
+            <dt>拍攝情境</dt><dd>工作室或客戶辦公室，30 到 60 分鐘，可換兩套服裝。</dd>
+            <dt>客戶需求</dt><dd>需要用在官網、LinkedIn 與簡報，看起來專業又不僵硬。</dd>
+            <dt>成品方向</dt><dd>柔光、乾淨背景，提供直式與橫式裁切，方便各平台使用。</dd>
+          </dl>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="plans" aria-labelledby="plans-title">
+    <div class="wrap">
+      <h2 id="plans-title">服務方案</h2>
+      <p class="lead">價格為參考區間，實際報價依地點、時數與需求確認。</p>
+      <div class="plans">
+        <article class="plan">
+          <h3>婚紗輕旅拍</h3>
+          <p class="price">NT$ 18,000 – 28,000</p>
+          <ul>
+            <li>單一場景，拍攝約 2–3 小時</li>
+            <li>精修 20 張，全數原圖檔</li>
+            <li>線上選片相簿</li>
+          </ul>
+          <p class="meta">交件時間：拍攝後 21–30 天<br>加選：精修每張 NT$ 300</p>
+        </article>
+        <article class="plan main">
+          <h3>婚禮紀錄全日</h3>
+          <p class="price">NT$ 26,000 – 38,000</p>
+          <ul>
+            <li>迎娶、儀式、宴客，約 8 小時</li>
+            <li>精選 300 張調光，附完整原圖</li>
+            <li>一位攝影師，可加購第二攝影師</li>
+          </ul>
+          <p class="meta">交件時間：婚禮後 30–45 天<br>加選：延長每小時 NT$ 3,000</p>
+        </article>
+        <article class="plan">
+          <h3>形象照</h3>
+          <p class="price">NT$ 4,500 – 8,000</p>
+          <ul>
+            <li>拍攝 30–60 分鐘，可換兩套服裝</li>
+            <li>精修 3–5 張，含直橫式裁切</li>
+            <li>可到府或於工作室拍攝</li>
+          </ul>
+          <p class="meta">交件時間：拍攝後 7–10 天<br>加選：精修每張 NT$ 800</p>
+        </article>
+      </div>
+      <p class="addon">加選說明：額外精修、相本、第二攝影師與外縣市交通費皆另計。預約以收到訂金為準，拍攝前 14 天可免費更改日期一次。</p>
+    </div>
+  </section>
+
+  <section id="process" class="alt-bg" aria-labelledby="process-title">
+    <div class="wrap">
+      <h2 id="process-title">拍攝流程</h2>
+      <p class="lead">從第一次聯絡到收到照片，每一步都會清楚告訴你接下來要做什麼。</p>
+      <ol class="steps">
+        <li><h3>詢問</h3><p>填寫表單，說明日期、地點與預算，確認檔期。</p></li>
+        <li><h3>溝通</h3><p>線上或面談，了解你們的故事、喜好與不想要的畫面。</p></li>
+        <li><h3>拍攝</h3><p>現場以引導取代擺拍，讓你們放鬆做自己。</p></li>
+        <li><h3>精修</h3><p>選片後進行調光與修飾，保持自然質感。</p></li>
+        <li><h3>交件</h3><p>以雲端相簿交付，並提供下載與保存建議。</p></li>
+      </ol>
+    </div>
+  </section>
+
+  <section id="about" aria-labelledby="about-title">
+    <div class="wrap about-grid">
+      <div class="ph">
+        <img loading="lazy" src="images/about.jpg" width="800" height="1000" alt="小漾攝影工作室攝影師手持相機的工作側影">
+      </div>
+      <div>
+        <h2 id="about-title">關於我</h2>
+        <p>我是小漾，在臺中拍攝婚紗、婚禮與形象照。比起完美的姿勢，我更在意你們笑起來的樣子，以及那個當下人與人之間的距離。</p>
+        <p>拍攝前我會先聊天，了解你的個性和顧慮；現場盡量使用自然光，用簡單的引導讓動作自然發生。後期只做必要的調光與修飾，不過度磨皮、不改變輪廓。</p>
+        <p>如果你想要的是「看起來就是我們」的照片，歡迎和我聊聊。</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact" class="alt-bg" aria-labelledby="contact-title">
+    <div class="wrap">
+      <h2 id="contact-title">詢問檔期</h2>
+      <p class="lead">填寫後會開啟你的郵件程式，我會在兩個工作天內回覆。</p>
+      <form id="inquiry" novalidate>
+        <div class="field"><label for="name">姓名</label><input id="name" name="name" required autocomplete="name"></div>
+        <div class="field"><label for="contact-info">聯絡方式（電話、LINE 或 Email）</label><input id="contact-info" name="contact" required></div>
+        <div class="field"><label for="type">拍攝類型</label>
+          <select id="type" name="type" required>
+            <option value="">請選擇</option><option>婚紗</option><option>婚禮紀錄</option><option>形象照</option>
+          </select></div>
+        <div class="field"><label for="date">預計日期</label><input id="date" name="date" type="date"></div>
+        <div class="field"><label for="place">拍攝地點</label><input id="place" name="place"></div>
+        <div class="field"><label for="budget">預算</label>
+          <select id="budget" name="budget">
+            <option value="">請選擇</option><option>NT$ 10,000 以下</option><option>NT$ 10,000 – 20,000</option><option>NT$ 20,000 – 30,000</option><option>NT$ 30,000 以上</option>
+          </select></div>
+        <div class="field full"><label for="note">留言</label><textarea id="note" name="note"></textarea></div>
+        <div class="field full"><button class="btn primary" type="submit">送出詢問</button></div>
+        <p id="msg" role="status"></p>
+      </form>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="cols">
+      <div><h2>小漾攝影工作室</h2><p>自然、不過度修飾。</p></div>
+      <address style="font-style:normal">
+        Email：<a href="mailto:hello@xiaoyang-photo.example">hello@xiaoyang-photo.example</a><br>
+        Instagram：<a href="https://www.instagram.com/" target="_blank" rel="noopener">@xiaoyang.photo</a><br>
+        服務地區：臺中，可接洽中臺灣各縣市
+      </address>
+    </div>
+    <small>© 2026 小漾攝影工作室 版權所有。網站圖片未經同意，請勿轉載或商用。</small>
+  </div>
+</footer>
+
+<script>
+document.getElementById('inquiry').addEventListener('submit',function(e){
+  e.preventDefault();
+  var f=this, m=document.getElementById('msg');
+  if(!f.name.value.trim()||!f.contact.value.trim()||!f.type.value){
+    m.textContent='請填寫姓名、聯絡方式與拍攝類型。';return;
+  }
+  var body=['姓名：'+f.name.value,'聯絡方式：'+f.contact.value,'拍攝類型：'+f.type.value,
+    '日期：'+f.date.value,'地點：'+f.place.value,'預算：'+f.budget.value,'留言：'+f.note.value].join('\n');
+  location.href='mailto:hello@xiaoyang-photo.example?subject='+encodeURIComponent('檔期詢問：'+f.type.value)+'&body='+encodeURIComponent(body);
+  m.textContent='已開啟郵件程式，請確認內容後寄出。';
+});
+</script>
+</body>
+</html>
