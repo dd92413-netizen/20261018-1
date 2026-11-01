@@ -98,6 +98,7 @@ form{display:grid;grid-template-columns:1fr 1fr;gap:20px;max-width:760px}
 label{font-weight:500;font-size:.95rem}
 input,select,textarea{font:inherit;padding:11px 12px;border:1px solid #AAB4B0;border-radius:2px;background:#fff;color:var(--ink)}
 textarea{min-height:130px;resize:vertical}
+.hp{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
 #msg{grid-column:1/-1;font-size:.95rem;color:var(--accent-dark)}
 
 footer{background:var(--ink);color:#DDE4E1;padding:56px 0 32px}
@@ -252,7 +253,7 @@ footer small{display:block;border-top:1px solid #3A4744;padding-top:20px;color:#
         </article>
         <article class="plan main">
           <h3>婚禮紀錄全日</h3>
-          <p class="price">NT$ 28,000 – 38,000</p>
+          <p class="price">NT$ 26,000 – 38,000</p>
           <ul>
             <li>迎娶、儀式、宴客，約 8 小時</li>
             <li>精選 300 張調光，附完整原圖</li>
@@ -262,13 +263,13 @@ footer small{display:block;border-top:1px solid #3A4744;padding-top:20px;color:#
         </article>
         <article class="plan">
           <h3>形象照</h3>
-          <p class="price">NT$ 5,500 – 8,000</p>
+          <p class="price">NT$ 4,500 – 8,000</p>
           <ul>
             <li>拍攝 30–60 分鐘，可換兩套服裝</li>
             <li>精修 3–5 張，含直橫式裁切</li>
             <li>可到府或於工作室拍攝</li>
           </ul>
-          <p class="meta">交件時間：拍攝後 7–10 天<br>加選：精修每張 NT$ 900</p>
+          <p class="meta">交件時間：拍攝後 7–10 天<br>加選：精修每張 NT$ 800</p>
         </article>
       </div>
       <p class="addon">加選說明：額外精修、相本、第二攝影師與外縣市交通費皆另計。預約以收到訂金為準，拍攝前 14 天可免費更改日期一次。</p>
@@ -306,8 +307,9 @@ footer small{display:block;border-top:1px solid #3A4744;padding-top:20px;color:#
   <section id="contact" class="alt-bg" aria-labelledby="contact-title">
     <div class="wrap">
       <h2 id="contact-title">詢問檔期</h2>
-      <p class="lead">填寫後會開啟你的郵件程式，我會在兩個工作天內回覆。</p>
+      <p class="lead">送出後我會收到通知，並在兩個工作天內回覆你。</p>
       <form id="inquiry" novalidate>
+        <div class="hp" aria-hidden="true"><label for="website">請勿填寫此欄</label><input id="website" name="website" tabindex="-1" autocomplete="off"></div>
         <div class="field"><label for="name">姓名</label><input id="name" name="name" required autocomplete="name"></div>
         <div class="field"><label for="contact-info">聯絡方式（電話、LINE 或 Email）</label><input id="contact-info" name="contact" required></div>
         <div class="field"><label for="type">拍攝類型</label>
@@ -321,7 +323,7 @@ footer small{display:block;border-top:1px solid #3A4744;padding-top:20px;color:#
             <option value="">請選擇</option><option>NT$ 10,000 以下</option><option>NT$ 10,000 – 20,000</option><option>NT$ 20,000 – 30,000</option><option>NT$ 30,000 以上</option>
           </select></div>
         <div class="field full"><label for="note">留言</label><textarea id="note" name="note"></textarea></div>
-        <div class="field full"><button class="btn primary" type="submit">送出詢問</button></div>
+        <div class="field full"><button id="submit-btn" class="btn primary" type="submit">送出詢問</button></div>
         <p id="msg" role="status"></p>
       </form>
     </div>
@@ -343,16 +345,31 @@ footer small{display:block;border-top:1px solid #3A4744;padding-top:20px;color:#
 </footer>
 
 <script>
-document.getElementById('inquiry').addEventListener('submit',function(e){
+/* 貼上 Google Apps Script 部署後的網頁應用程式網址（結尾為 /exec） */
+var ENDPOINT = "PASTE_YOUR_APPS_SCRIPT_URL_HERE";
+
+document.getElementById('inquiry').addEventListener('submit', function(e){
   e.preventDefault();
-  var f=this, m=document.getElementById('msg');
-  if(!f.name.value.trim()||!f.contact.value.trim()||!f.type.value){
-    m.textContent='請填寫姓名、聯絡方式與拍攝類型。';return;
+  var f = this, m = document.getElementById('msg'), btn = document.getElementById('submit-btn');
+  if (f.website.value) return; /* 防機器人：隱藏欄位被填寫就不送出 */
+  if (!f.name.value.trim() || !f.contact.value.trim() || !f.type.value) {
+    m.textContent = '請填寫姓名、聯絡方式與拍攝類型。'; return;
   }
-  var body=['姓名：'+f.name.value,'聯絡方式：'+f.contact.value,'拍攝類型：'+f.type.value,
-    '日期：'+f.date.value,'地點：'+f.place.value,'預算：'+f.budget.value,'留言：'+f.note.value].join('\n');
-  location.href='mailto:hello@xiaoyang-photo.example?subject='+encodeURIComponent('檔期詢問：'+f.type.value)+'&body='+encodeURIComponent(body);
-  m.textContent='已開啟郵件程式，請確認內容後寄出。';
+  if (ENDPOINT.indexOf('PASTE_') === 0) {
+    m.textContent = '尚未設定表單接收網址，請先完成 Apps Script 部署。'; return;
+  }
+  var data = new URLSearchParams();
+  ['name','contact','type','date','place','budget','note'].forEach(function(k){ data.append(k, f[k].value.trim()); });
+  btn.disabled = true; m.textContent = '送出中…';
+  fetch(ENDPOINT, { method: 'POST', mode: 'no-cors', body: data })
+    .then(function(){
+      m.textContent = '已收到你的詢問，我會盡快與你聯絡，謝謝！';
+      f.reset();
+    })
+    .catch(function(){
+      m.textContent = '送出失敗，請稍後再試，或直接來信 hello@xiaoyang-photo.example。';
+    })
+    .finally(function(){ btn.disabled = false; });
 });
 </script>
 </body>
