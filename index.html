@@ -355,7 +355,7 @@ document.getElementById('inquiry').addEventListener('submit', function(e){
   if (!f.name.value.trim() || !f.contact.value.trim() || !f.type.value) {
     m.textContent = '請填寫姓名、聯絡方式與拍攝類型。'; return;
   }
-  if (ENDPOINT.indexOf('PASTE_') === 0) {
+  if (ENDPOINT.indexOf('PASTE_') === 0) {AKfycbxL13EbbYqoAzhfQ4MmvEemwOgOSIxFx5iRBDDQj_vfPNIIAmR8R71nbIJvzEJLdpE/exec
     m.textContent = '尚未設定表單接收網址，請先完成 Apps Script 部署。'; return;
   }
   var data = new URLSearchParams();
