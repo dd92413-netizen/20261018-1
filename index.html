@@ -346,7 +346,7 @@ footer small{display:block;border-top:1px solid #3A4744;padding-top:20px;color:#
 
 <script>
 /* 貼上 Google Apps Script 部署後的網頁應用程式網址（結尾為 /exec） */
-var ENDPOINT =AKfycbxL13EbbYqoAzhfQ4MmvEemwOgOSIxFx5iRBDDQj_vfPNIIAmR8R71nbIJvzEJLdpE/exec";
+var ENDPOINT = "PASTE_YOUR_APPS_SCRIPT_URL_HERE";
 
 document.getElementById('inquiry').addEventListener('submit', function(e){
   e.preventDefault();
@@ -355,7 +355,7 @@ document.getElementById('inquiry').addEventListener('submit', function(e){
   if (!f.name.value.trim() || !f.contact.value.trim() || !f.type.value) {
     m.textContent = '請填寫姓名、聯絡方式與拍攝類型。'; return;
   }
-  if (ENDPOINT.indexOf('PASTE_') === 0) {AKfycbxL13EbbYqoAzhfQ4MmvEemwOgOSIxFx5iRBDDQj_vfPNIIAmR8R71nbIJvzEJLdpE/exec
+  if (ENDPOINT.indexOf('PASTE_') === 0) {
     m.textContent = '尚未設定表單接收網址，請先完成 Apps Script 部署。'; return;
   }
   var data = new URLSearchParams();
